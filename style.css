@@ -39,8 +39,7 @@ button {
     border: none;
     background: transparent;
     outline-color: var(--secundaria-color);
-    color: #000;
-    /*trocar por segundaria*/
+    color: var(--primaria-color);
     transition: 0.3s;
     opacity: 0.5;
 }
@@ -105,7 +104,7 @@ button:is(:active, :hover) {
     gap: 0.5rem;
 }
 
-.tarefa>* {
+.tarefa > * {
     background: #fff;
     border-radius: 0.25rem;
     padding: 0.875rem;
