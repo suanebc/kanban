@@ -83,6 +83,6 @@ colunasKanba.addEventListener("click", (event) => {
 });
 
 modalDeletar.addEventListener('submit', () => tarefaAtual && tarefaAtual.remove());
-modalDeletar.querySelector("#cancel").addEventListener("click", () => modalDeletar.close());
+modalDeletar.querySelector("#inCancela").addEventListener("click", () => modalDeletar.close());
 
 modalDeletar.addEventListener("close", () => (tarefaAtual = null))
