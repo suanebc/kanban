@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
   <title>Kanban</title>
@@ -22,33 +26,30 @@
     <div class="coluna">
       <div class="coluna-titulo">
         <h3 data-tarefas="0">Pendências</h3>
-        <button data-add><i class="fa-solid fa-plus"></i></button>
+        <button data-add><i class="bi bi-plus"></i></button>
       </div>
-      <div class="lista"></div>
+      <div class="tarefas"></div>
     </div>
 
     <div class="coluna">
       <div class="coluna-titulo">
         <h3 data-tarefas="0">Em andamento</h3>
-        <button data-add><i class="fa-solid fa-plus"></i></button>
+        <button data-add><i class="bi bi-plus"></i></button>
       </div>
-      <div class="lista"></div>
+      <div class="tarefas"></div>
     </div>
-
-    <div class="coluna">
+        <div class="coluna">
       <div class="coluna-titulo">
-        <h3 data-tarefas="0">Concluído</h3>
-        <button data-add><i class="fa-solid fa-plus"></i></button>
+        <h3 data-tarefas="0">Concluídas</h3>
+        <button data-add><i class="bi bi-plus"></i></button>
       </div>
-      <div class="lista"></div>
+      <div class="tarefas"></div>
     </div>
-  </div>
-
   <!-- Criar modal -->
-   <dialog>
+   <dialog class="confirma-modal">
     <form method="dialog">
         <h3>Deseja deletar tarefa?</h3>
-        <p>você irá excluir a seguinte tarefa</p>
+        <p>Você irá excluir a seguinte tarefa</p>
         <div class="preview"></div>
         <menu>
           <button type="button" id="inCancela">Cancelar</button>

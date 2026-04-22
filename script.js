@@ -1,11 +1,56 @@
 
-const colunasKanba = document.querySelector(".colunas");
-const colunas = colunasKanba.querySelectorAll(".coluna");
-const modalDeletar = document.querySelectorAll(".coluna");
+const colunasKanban = document.querySelector(".colunas");
+const colunas = colunasKanban.querySelectorAll(".coluna");
+const modalDeletar = document.querySelectorAll("#confirma-modal");
 
 let tarefaAtual = null;
 
 // FUNÇÕES ----------------------------------------------
+
+const handleDragover = (event) => {
+  event.preventDefault(); 
+
+  const draggedTarefa = document.querySelector(".dragging");
+  const target = event.target.closest(".tarefa, .tarefas");
+
+  if (!target || target === draggedTarefa) return;
+
+  if (target.classList.contains("tarefas")) {
+    // target is the tasks element
+    const lastTarefa = target.lastElementChild;
+    if (!lastTarefa) {
+      // tasks is empty
+      target.appendChild(draggedTarefa);
+    } else {
+      const { bottom } = lastTarefa.getBoundingClientRect();
+      event.clientY > bottom && target.appendChild(draggedTarefa);
+    }
+  } else {
+    // target is another
+    const { top, height } = target.getBoundingClientRect();
+    const distance = top + height / 2;
+
+    if (event.clientY < distance) {
+      target.before(draggedTask);
+    } else {
+      target.after(draggedTask);
+    }
+  }
+};
+
+const handleDrop = (event) => {
+  event.preventDefault();
+};
+
+const handleDragend = (event) => {
+  event.target.classList.remove("dragging");
+};
+
+const handleDragstart = (event) => {
+  event.dataTransfer.effectsAllowed = "move";
+  event.dataTransfer.setData("text/plain", "");
+  requestAnimationFrame(() => event.target.classList.add("dragging"));
+};
 
 const deletarTarefa = (event) => {
   tarefaAtual = event.target.closest(".tarefa");//encontrar o ancestral mais próximo que corresponda a um seletor CSS específico
@@ -42,10 +87,20 @@ const addTarefa = (event) => {
 
 // FUNÇÃO ATUALIZAR CONTADOR DE TAREFA
 const atualizarContador = (column) => {
-  const tarefa = column.querySelector(".tarefa").children;
+  const tarefas = column.querySelector(".tarefas").children;
   const contadorTarefa = tarefa.length;
   column.querySelector(".coluna-titulo h3").dataset.tarefa = contadorTarefa
 }
+const observaTarefas = () =>{
+  for(const coluna of colunas){
+    const observar = new MutationObserver(() => atualizarContador(coluna));
+    observar.observe(coluna.querySelector(".tarefas"), {childList: true});
+
+  }
+};
+
+observaTarefas();
+
 // FUNÇÃO PARA CRIAR TAREFA
 const criarTarefa = (content) => {
   const tarefa = document.createElement("div"); // cia o elemento div
@@ -57,8 +112,8 @@ const criarTarefa = (content) => {
       <button data-edit><i class="bi bi-pencil-square"></i></button>
       <button data-delete><i class="bi bi-trash"></i></button>
   </menu>`;
-  //tarefa.addEventListener("dragstart", handleDragstart);
-  //tarefa.addEventListener("dragend", handleDragend);
+  tarefa.addEventListener("dragstart", handleDragstart);
+  tarefa.addEventListener("dragend", handleDragend);
   return tarefa;
 };
 // FUNÇÃO PARA CRIAR INPUT
@@ -72,7 +127,7 @@ const criarTarefaInput = (text = "") => {
   return input;
 };
 // FUNÇÃO PARA CLICK NO BOTÃO +
-colunasKanba.addEventListener("click", (event) => {
+colunasKanban.addEventListener("click", (event) => {
   if (event.target.closest("button[data-add]")) {
     addTarefa(event);
   } else if (event.target.closest("button[data-edit]")) {

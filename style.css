@@ -2,7 +2,7 @@
 
 
 :root {
-    --bg-color: #a5b4fc;
+    --bg-color: #e2e8f0;
     --texto-color: #404040;
     --primaria-color: #475569;
     --secundaria-color: #cbd5e1;
@@ -97,14 +97,14 @@ button:is(:active, :hover) {
     font-size: 2rem;
 }
 
-.tarefa {
+.tarefas {
     min-height: var(--tarefa-size);
     display: grid;
     align-content: start;
     gap: 0.5rem;
 }
 
-.tarefa > * {
+.tarefas > * {
     background: #fff;
     border-radius: 0.25rem;
     padding: 0.875rem;
@@ -122,13 +122,6 @@ button:is(:active, :hover) {
     cursor: default;
     box-shadow: none;
     background: var(--secundaria-color);
-    opacity: 0.5;
-}
-
-.tarefa.dragging {
-    cursor: default;
-    box-shadow: none;
-    background: var(--secondary-color);
     opacity: 0.5;
 }
 
@@ -152,13 +145,13 @@ button:is(:active, :hover) {
     height: 1.5rem;
     font-size: 1.25rem;
 }
-.task-input {
+.tarefa-input {
   outline: none;
   overflow-wrap: anywhere;
   padding-left: 2.5rem;
 }
 
-.task-input::before {
+.tarefa-input::before {
   content: "\F392";
   font-family: "bootstrap-icons";
   position: absolute;
@@ -168,17 +161,17 @@ button:is(:active, :hover) {
   opacity: 0.5;
 }
 
-.task-input:empty::after {
+.tarefa-input:empty::after {
   content: attr(data-placeholder);
   opacity: 0.5;
 }
 
-.confirm-modal[open] {
+.confirma-modal[open] {
   opacity: 1;
   transform: translate(-50%, -50%) translateY(0);
 }
 
-.confirm-modal {
+.confirma-modal {
   opacity: 0;
   transform: translate(-50%, -50%) translateY(50px);
   left: 50%;
@@ -189,39 +182,39 @@ button:is(:active, :hover) {
   transition: all 0.3s allow-discrete;
 }
 
-.confirm-modal[open]::backdrop {
+.confirma-modal[open]::backdrop {
   background: rgba(0, 0, 0, 0.25);
 }
 
-.confirm-modal::backdrop {
+.confirma-modal::backdrop {
   background: rgba(0, 0, 0, 0);
   transition: all 0.3s allow-discrete;
 }
 
 @starting-style {
-  .confirm-modal[open] {
+  .confirma-modal[open] {
     opacity: 0;
     transform: translate(-50%, -50%) translateY(50px);
   }
 
-  .confirm-modal[open]::backdrop {
+  .confirma-modal[open]::backdrop {
     background: rgba(0, 0, 0, 0);
   }
 }
 
-.confirm-modal form {
+.confirma-modal form {
   padding: 2rem;
 }
 
-.confirm-modal form > *:not(:last-child) {
+.confirma-modal form > *:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-.confirm-modal h3 {
+.confirma-modal h3 {
   font-size: 1.5rem;
 }
 
-.confirm-modal div.preview {
+.confirma-modal div.preview {
   font-size: 0.875rem;
   padding-left: 0.5rem;
   border-left: 2px solid var(--secondary-color);
@@ -232,13 +225,13 @@ button:is(:active, :hover) {
   opacity: 0.75;
 }
 
-.confirm-modal menu {
+.confirma-modal menu {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
 }
 
-.confirm-modal button {
+.confirma-modal button {
   opacity: 1;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -247,17 +240,17 @@ button:is(:active, :hover) {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-.confirm-modal button#cancel {
-  border-color: var(--cancel-color);
+.confirma-modal button#cancel {
+  border-color: var(--cancela-color);
 }
 
-.confirm-modal button#confirm {
-  border-color: var(--confirm-color);
-  background: var(--confirm-color);
+.confirma-modal button#confirm {
+  border-color: var(--confirma-color);
+  background: var(--confirma-color);
   color: #fff;
 }
 
-.confirm-modal button#confirm:hover {
-  border-color: var(--confirm-hover-color);
-  background: var(--confirm-hover-color);
+.confirma-modal button#confirm:hover {
+  border-color: var(--confirma-hover-color);
+  background: var(--confirma-hover-color);
 }
