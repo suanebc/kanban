@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="src/styles.css">
+
+  <script src="/src/script.js" defer></script>
+
+  <title>Kanban</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Kanban</h1>
+  </header>
+  <main>
+    <section class="colunas">
+
+      <section class="coluna">
+        <h3 data-tarefas="0" class="coluna-titulo">TO DO</h2>
+          <button data-add><i class="bi bi-plus"></i></button>
+          <section class="tarefas"></section>
+      </section>
+      <section class="coluna">
+        <h3 data-tarefas="0" class="coluna-titulo">TO DO</h2>
+          <button data-add><i class="bi bi-plus"></i></button>
+          <section class="tarefas"></section>
+      </section>
+      <section class="coluna">
+        <h3 data-tarefas="0" class="coluna-titulo">TO DO</h2>
+          <button data-add><i class="bi bi-plus"></i></button>
+          <section class="tarefas"></section>
+      </section>
+
+    </section>
+
+    <!-- Criar modal -->
+    <dialog class="confirma-modal">
+      <form method="dialog">
+        <h3>Deseja deletar tarefa?</h3>
+        <p>Você irá excluir a seguinte tarefa</p>
+        <div class="preview"></div>
+        <menu>
+          <button type="button" id="inCancela">Cancelar</button>
+          <button type="submit" id="inConfirma">Sim, deletar tarefa.</button>
+        </menu>
+      </form>
+    </dialog>
+  </main>
+  <footer>
+    <p>&copy; <span id="year"> </span> - SuaneBC - Todos os direitos reservados </p>
+  </footer>
+</body>
+
+</html>
