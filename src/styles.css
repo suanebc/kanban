@@ -5,7 +5,7 @@
   --bg-color: #DDD0C8;
   --texto-color: #323232;
   --primaria-color: #475569;
-  --secundaria-color: #cbd5e1;
+  --secundaria-color: #FDFBD4;
   --tarefa-color: #f6f6f6;
   --cancela-color: #e5e7eb;
   --confirma-color: #dc2626;
@@ -21,6 +21,7 @@
 }
 
 body {
+  display: grid;
   grid-template: auto 1fr auto;/* Header, Conteúdo, Footer */
   grid-template-areas:
     "header"
@@ -44,7 +45,6 @@ main {
 
 footer {
   grid-area: footer;
-  /* Opcional: Centralizar conteúdo do footer */
   text-align: center;
 }
 
@@ -71,7 +71,7 @@ button:is(:active, :hover) {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: min(1200px, 90%);
+    width: min(1200px, 100%);
     margin: 0 auto;
 }
 
@@ -101,7 +101,7 @@ button:is(:active, :hover) {
 
 .coluna-titulo h3::after {
     content: attr(data-tarefas);
-    background: lightblue;
+    background: var(--secundaria-color);
     margin-left: 0.25rem;
     border-radius: 0.25rem;
     padding: 0 0.25rem;
@@ -120,7 +120,7 @@ button:is(:active, :hover) {
 }
 
 .tarefas > * {
-    background: #fff;
+    background: var(#FDFBD4);
     border-radius: 0.25rem;
     padding: 0.875rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -160,13 +160,13 @@ button:is(:active, :hover) {
     height: 1.5rem;
     font-size: 1.25rem;
 }
-.tarefa-input {
+.tarefa-zona {
   outline: none;
   overflow-wrap: anywhere;
   padding-left: 2.5rem;
 }
 
-.tarefa-input::before {
+.tarefa-zona::before {
   content: "\F392";
   font-family: "bootstrap-icons";
   position: absolute;
@@ -176,7 +176,7 @@ button:is(:active, :hover) {
   opacity: 0.5;
 }
 
-.tarefa-input:empty::after {
+.tarefa-zona:empty::after {
   content: attr(data-placeholder);
   opacity: 0.5;
 }
@@ -235,7 +235,7 @@ button:is(:active, :hover) {
   border-left: 2px solid var(--secundaria-color);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /*-webkit-line-clamp: 2;*/
   overflow: hidden;
   opacity: 0.75;
 }
