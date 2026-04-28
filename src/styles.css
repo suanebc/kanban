@@ -22,7 +22,7 @@
 
 body {
   display: grid;
-  grid-template: auto 1fr auto;/* Header, Conteúdo, Footer */
+  grid-template: auto 1fr auto;/* Header, Conteúdo, Footer*/
   grid-template-areas:
     "header"
     "main"
@@ -160,13 +160,13 @@ button:is(:active, :hover) {
     height: 1.5rem;
     font-size: 1.25rem;
 }
-.tarefa-zona {
-  outline: none;
+.tarefa-paragrafo {
+  outline: noneparagrafo;
   overflow-wrap: anywhere;
   padding-left: 2.5rem;
 }
 
-.tarefa-zona::before {
+.tarefa-paragrafo::before {
   content: "\F392";
   font-family: "bootstrap-icons";
   position: absolute;
@@ -176,7 +176,7 @@ button:is(:active, :hover) {
   opacity: 0.5;
 }
 
-.tarefa-zona:empty::after {
+.tarefa-paragrafo:empty::after {
   content: attr(data-placeholder);
   opacity: 0.5;
 }

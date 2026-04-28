@@ -4,18 +4,30 @@ a.innerText = new Date().getFullYear();
 const colunas = document.querySelector(".colunas");
 const coluna = colunas.querySelectorAll(".coluna");
 
+const editarTarefa = (event) =>{
+  const tarefa = event.target.closest('tarefa');
+  const paragrafo = criarParagrafoTarefa(tarefa.innerText);
+  tarefa.replaceWith(paragrafo);
+  paragrafo.focus();
+
+  // mover o cursosr para o final do texto
+  const selecao = window.getSelection();
+  selecao.selectAllChildren(paragrafo);
+  selecao.collapseToEnd();
+}
+
 const handleBlur = (event) => {
-  const zona = event.target;
-  const conteudo = zona.innerText.trim() || 'Vazio';
+  const paragrafo = event.target;
+  const conteudo = paragrafo.innerText.trim() || 'Vazio';
   const tarefa = criarTarefa(conteudo.replace(/\n/g, "<br>"));
-  zona.replaceWith(tarefa);
+  paragrafo.replaceWith(tarefa);
 }
 // ADICIONAR TAREFA NA COLUNA
 const adicionarTarefa = (event) => {
   const elementoTarefa = event.target.closest('.coluna').lastElementChild;
-  const zona = criarZonaTarefa();
-  elementoTarefa.appendChild(zona);
-  zona.focus();
+  const paragrafo = criarParagrafoTarefa();
+  elementoTarefa.appendChild(paragrafo);
+  paragrafo.focus();
 }
 
 
@@ -34,18 +46,21 @@ const criarTarefa = (content) => {
   //tarefa.addEventListener("dragend", handleDragend);
   return tarefa;
 };
-const criarZonaTarefa = (text = '') => {
-  const zona = document.createElement("section");
-  zona.className = "tarefa-zona";
-  zona.dataset.placeholder = "Nome da Tarefa";
-  zona.contentEditable = true;
-  zona.innerText = text;
-  zona.addEventListener('blur', handleBlur);
-  return zona;
+//CRIA ELEMENTO PARA ENTRADA DA TAREFA
+const criarParagrafoTarefa = (text = '') => {
+  const paragrafo = document.createElement("p");
+  paragrafo.className = "tarefa-paragrafo";
+  paragrafo.dataset.placeholder = "Digite sua tarefa";
+  paragrafo.contentEditable = true;
+  paragrafo.innerText = text;
+  paragrafo.addEventListener('blur', handleBlur);
+  return paragrafo;
 }
 // EVENTOS 
 colunas.addEventListener('click', (event) => {
   if(event.target.closest('button[data-add]')){
-    adicionarTarefa(event);// eventono botão +
+    adicionarTarefa(event);// 
+  } else if (event.target.closest('button[data-edit]')){
+    editarTarefa(event);
   }
-})
+});
