@@ -3,7 +3,16 @@ const a = document.getElementById("year");
 a.innerText = new Date().getFullYear();
 const colunas = document.querySelector(".colunas");
 const coluna = colunas.querySelectorAll(".coluna");
+const modalDeletar = document.querySelector(".confirma-modal");
 
+let tarefaAtual = null;
+
+const deletarTarefa = (event) => {
+  tarefaAtual = event.target.closest(".tarefa");
+  modalDeletar.querySelector(".preview").innerText = tarefaAtual.innerText.substring(0, 100);
+  modalDeletar.showModal();
+  
+}
 const editarTarefa = (event) =>{
   const tarefa = event.target.closest('.tarefa');
   const paragrafo = criarParagrafoTarefa(tarefa.innerText);
@@ -62,5 +71,11 @@ colunas.addEventListener('click', (event) => {
     adicionarTarefa(event);// 
   } else if (event.target.closest('button[data-edit]')){
     editarTarefa(event);
+  } else if (event.target.closest("button[data-delete]")) {
+    deletarTarefa(event);
   }
 });
+
+modalDeletar.addEventListener('submit', () => tarefaAtual && tarefaAtual.remove());
+modalDeletar.querySelector("#inCancela").addEventListener("click", () => modalDeletar.close());
+modalDeletar.addEventListener("close", () => (tarefaAtual = null))

@@ -232,7 +232,7 @@ button:is(:active, :hover) {
 .confirma-modal div.preview {
   font-size: 0.875rem;
   padding-left: 0.5rem;
-  border-left: 2px solid var(--secundaria-color);
+  border-left: 2px solid var(--confirma-color);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   /*-webkit-line-clamp: 2;*/
@@ -255,17 +255,17 @@ button:is(:active, :hover) {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-.confirma-modal button#cancel {
-  border-color: var(--cancela-color);
+.confirma-modal button#inCancel {
+  border-color: var(--confirma-color);
 }
 
-.confirma-modal button#confirm {
+.confirma-modal button#inConfirma {
   border-color: var(--confirma-color);
   background: var(--confirma-color);
   color: #fff;
 }
 
-.confirma-modal button#confirm:hover {
+.confirma-modal button#inConfirma:hover {
   border-color: var(--confirma-hover-color);
   background: var(--confirma-hover-color);
 }
