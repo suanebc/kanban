@@ -5,7 +5,7 @@ const colunas = document.querySelector(".colunas");
 const coluna = colunas.querySelectorAll(".coluna");
 
 const editarTarefa = (event) =>{
-  const tarefa = event.target.closest('tarefa');
+  const tarefa = event.target.closest('.tarefa');
   const paragrafo = criarParagrafoTarefa(tarefa.innerText);
   tarefa.replaceWith(paragrafo);
   paragrafo.focus();
