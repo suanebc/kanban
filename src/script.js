@@ -5,7 +5,7 @@ const colunas = document.querySelector(".colunas");
 const coluna = colunas.querySelectorAll(".coluna");
 const modalDeletar = document.querySelector(".confirma-modal");
 
-let tarefaAtual = null;
+let tarefaAtual;
 
 const deletarTarefa = (event) => {
   tarefaAtual = event.target.closest(".tarefa");
