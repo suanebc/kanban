@@ -20,29 +20,29 @@
 
   <header>
     <h1>Kanban</h1>
-    <p class="titulo"></p>
+    <p class="linha-titulo"></p>
   </header>
   <main>
     <section class="colunas">
 
       <section class="coluna">
-        <section class="coluna-titulo">
-          <h3 data-tarefas="0">Pendncias</h3>
+        <section class="coluna-titulo to-do">
+          <h3 data-tarefas="0">To Do</h3>
           <button data-add><i class="bi bi-plus"></i></button>
         </section>
         <section class="tarefas"></section>
-      
+
       </section>
 
       <section class="coluna">
-        <section class="coluna-titulo">
+        <section class="coluna-titulo in-progress">
           <h3 data-tarefas="0">Em andamento</h3>
-          <button data-add><i class="bi bi-plus"></i></button>
+          <button data-add><i class="bi bi-plus in-progress"></i></button>
         </section>
         <section class="tarefas"></section>
       </section>
       <section class="coluna">
-        <section class="coluna-titulo">
+        <section class="coluna-titulo completed">
           <h3 data-tarefas="0">Concluídas</h3>
           <button data-add><i class="bi bi-plus"></i></button>
         </section>
@@ -65,7 +65,10 @@
       </dialog>
   </main>
   <footer>
-    <p>&copy; <span id="year"> </span> - SuaneBC - Todos os direitos reservados </p>
+    <p><a href="https://github.com/suanebc">GitHub</a> <a
+        href="https://www.linkedin.com/in/suane-bittencourt-dev/">Linkedin</a></p>
+
+    <span>&copy; <span id="year"> </span>SuaneBC - Todos os direitos reservados </span>
   </footer>
 </body>
 

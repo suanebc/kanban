@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-                                     
+
 
 :root {
   --bg-color: #DDD0C8;
@@ -8,9 +8,12 @@
   --secundaria-color: #FDFBD4;
   --tarefa-color: #f6f6f6;
   --cancela-color: #e5e7eb;
-  --bg-color:#F4E100;
+  --bg-color: #F4E100;
   --confirma-color: #dc2626;
   --confirma-hover-color: #b91c1c;
+  --color-to-do: #D13B42;
+  --color-in-progress: #0623C6;
+  --color-completed: #2B8D2F;
   --tarefa-size: 48px;
 }
 
@@ -23,7 +26,7 @@
 
 body {
   display: grid;
-  grid-template: auto 1fr auto;/* Header, Conteúdo, Footer*/
+  grid-template: auto 1fr auto;
   grid-template-areas:
     "header"
     "main"
@@ -31,8 +34,7 @@ body {
   min-height: 100dvh;
   margin: 0;
   background-image: url(imagens/vitoolariaga-bg.jpg);
-  background-color:var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color);
   min-height: 100dvh;
 
 }
@@ -40,8 +42,8 @@ body {
 header {
   grid-area: header;
   display: flex;
-  flex-direction:column;
-  align-items:end;
+  flex-direction: column;
+  align-items: end;
   padding: 0;
 
 }
@@ -53,7 +55,7 @@ main {
 footer {
   grid-area: footer;
   text-align: center;
-  margin: 100px 5px 0 5px;
+  margin: 10px 5px 0 5px;
 }
 
 h1 {
@@ -61,9 +63,10 @@ h1 {
   color: black;
   padding: 0;
 }
-p {
+
+.linha-titulo {
   width: 300px;
-  border-top:3px solid black;
+  border-top: 3px solid black;
   padding: 0;
   margin: 0 50px 0 0;
 }
@@ -72,117 +75,139 @@ button {
   cursor: pointer;
   border: none;
   background: transparent;
-  outline-color: var(--secundaria-color);
-  color: var(--primaria-color);
+  /*outline-color: var(--secundaria-color);*/
   transition: 0.3s;
   opacity: 0.5;
 }
+
 
 button:is(:active, :hover) {
   opacity: 1;
 }
 
+
+
 .colunas {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: min(1200px, 100%);
-    
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: min(1200px, 100%);
+
 }
 
 @media (min-width: 768px) {
-    body{
-        background-color:var(--bg-color);
-    }
-    .colunas {
-        flex-direction: row;
+  body {
+    background-color: var(--bg-color);
+  }
 
-    }
+  .colunas {
+    flex-direction: row;
+
+  }
 }
+
 .coluna {
-    flex: 1;
-    display: grid;
-    grid-template-rows: var(--tarefa-size) 1fr;
-    gap: 0.5rem;
-    padding: auto;
-    margin: auto;
-    
-    
+  flex: 1;
+  display: grid;
+  grid-template-rows: var(--tarefa-size) 1fr;
+  gap: 0.5rem;
+  padding: auto;
+  margin: auto;
+
+
 }
 
 .coluna-titulo {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid var(--primaria-color);
-    color: var(--primaria-color);
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+  background-color: white;
 }
 
+.to-do{
+  border-top: 3px solid var(--color-to-do);
+  color: var(--color-to-do);
+}
+.in-progress{
+  border-top: 3px solid var(--color-in-progress);
+  color: var(--color-in-progress);
+}
+.completed{
+  border-top: 3px solid var(--color-completed);
+  color:var(--color-completed);
+}
+
+/*
 .coluna-titulo h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
+  font-size: 1rem;
+  text-transform: uppercase;
 
-}
+}*/
 
 .coluna-titulo h3::after {
-    content: attr(data-tarefas);
-    margin-left: 0.25rem;
-    border-radius: 0.25rem;
-    padding: 0 0.25rem;
+  content: attr(data-tarefas);
+  margin-left: 0.25rem;
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
 }
 
 .coluna-titulo button {
-    margin-left: auto;
-    font-size: 2rem;
+  margin-left: auto;
+  font-size: 2rem;
+
 }
 
+/* ------------------- TAREFA ----------------------------------- */
 .tarefas {
-    min-height: var(--tarefa-size);
-    display: grid;
-    align-content: start;
-    gap: 0.5rem;
+  min-height: var(--tarefa-size);
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
 }
 
-.tarefas > * {
-    background: var(#FDFBD4);
-    border-radius: 0.25rem;
-    padding: 0.875rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    min-height: var(--tarefa-size);
+.tarefas>* {
+  background: var(#FDFBD4);
+  border-radius: 0.25rem;
+  padding: 0.875rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: var(--tarefa-size);
 }
 
 .tarefa {
-    cursor: move;
-    transition: 0.3s;
+  cursor: move;
+  transition: 0.3s;
 }
 
 .tarefa.dragging {
-    cursor: default;
-    box-shadow: none;
-    background: var(--secundaria-color);
-    opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+  background: var(--secundaria-color);
+  opacity: 0.5;
 }
 
 .tarefa.dragging * {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .tarefa:not(.dragging):hover {
-    background: var(--tarefa-color);
+  background: var(--tarefa-color);
 }
 
 .tarefa menu {
-    margin-top: 0.875rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
+  margin-top: 0.875rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .tarefa button {
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
 }
+
 .tarefa-paragrafo {
   outline: noneparagrafo;
   overflow-wrap: anywhere;
@@ -203,7 +228,8 @@ button:is(:active, :hover) {
   content: attr(data-placeholder);
   opacity: 0.5;
 }
-/* MODAL PARA DELETAR TAREFA */
+
+/* -------------MODAL PARA DELETAR TAREFA------------------------------------------------------------- */
 .confirma-modal[open] {
   opacity: 1;
   transform: translate(-50%, -50%) translateY(0);
@@ -244,7 +270,7 @@ button:is(:active, :hover) {
   padding: 2rem;
 }
 
-.confirma-modal form > *:not(:last-child) {
+.confirma-modal form>*:not(:last-child) {
   margin-bottom: 1rem;
 }
 
