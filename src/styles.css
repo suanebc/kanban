@@ -2,7 +2,6 @@
 
 
 :root {
-  --bg-color: #DDD0C8;
   --texto-color: #2C2C2A;
   --primaria-color: #475569;
   --secundaria-color: #FDFBD4;
@@ -26,18 +25,18 @@
 
 body {
   display: grid;
-  grid-template: auto 1fr auto;
+  grid-template: auto 3fr auto;
   grid-template-areas:
     "header"
     "main"
     "footer";
-  min-height: 100dvh;
-  margin: 0;
+  min-height: 100vh;
+  margin: 0 120px 0 120px;
   background-image: url(imagens/vitoolariaga-bg.jpg);
   background-size: cover;
   background-position: center;
   background-color: var(--bg-color);
-  min-height: 100dvh;
+  
 
 }
 
@@ -61,9 +60,9 @@ footer {
 }
 
 h1 {
-  margin: 30px 50px 0 0;
   color: black;
   padding: 0;
+  margin-top: 50px;
 }
 
 h3{
@@ -73,9 +72,9 @@ h3{
 
 .linha-titulo {
   width: 300px;
-  border-top: 3px solid black;
-  padding: 0;
-  margin: 0 50px 0 0;
+  border: 3px solid black;
+
+  
 }
 
 button {
@@ -140,10 +139,6 @@ button .completed {
   display: grid;
   grid-template-rows: var(--tarefa-size) 1fr;
   gap: 0.5rem;
-  padding: auto;
-  margin: auto;
-
-
 }
 
 .coluna-titulo {
