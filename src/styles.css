@@ -34,6 +34,8 @@ body {
   min-height: 100dvh;
   margin: 0;
   background-image: url(imagens/vitoolariaga-bg.jpg);
+  background-size: cover;
+  background-position: center;
   background-color: var(--bg-color);
   min-height: 100dvh;
 
@@ -64,6 +66,11 @@ h1 {
   padding: 0;
 }
 
+h3{
+  padding: auto;
+  margin: auto;
+}
+
 .linha-titulo {
   width: 300px;
   border-top: 3px solid black;
@@ -75,7 +82,6 @@ button {
   cursor: pointer;
   border: none;
   background: transparent;
-  /*outline-color: var(--secundaria-color);*/
   transition: 0.3s;
   opacity: 0.5;
 }
@@ -85,8 +91,30 @@ button:is(:active, :hover) {
   opacity: 1;
 }
 
+button .to-do {
+  color: var(--color-to-do);
 
+}
+button .in-progress {
+  color: var(--color-in-progress);
 
+}
+button .completed {
+  color:var(--color-completed);
+
+}
+.to-do h3 {
+  color: var(--color-to-do);
+
+}
+.in-progress h3 {
+  color: var(--color-in-progress);
+
+}
+.completed h3 {
+  color:var(--color-completed);
+
+}
 .colunas {
   display: flex;
   flex-direction: column;
@@ -98,6 +126,7 @@ button:is(:active, :hover) {
 @media (min-width: 768px) {
   body {
     background-color: var(--bg-color);
+    
   }
 
   .colunas {
@@ -119,21 +148,22 @@ button:is(:active, :hover) {
 
 .coluna-titulo {
   display: flex;
-  align-items: center;
-
+  align-items:normal;
+  
   border-radius: 10px;
   background-color: white;
+  
 }
 
-.to-do{
+.coluna-to-do {
   border-top: 3px solid var(--color-to-do);
   color: var(--color-to-do);
 }
-.in-progress{
+.coluna-in-progress {
   border-top: 3px solid var(--color-in-progress);
   color: var(--color-in-progress);
 }
-.completed{
+.coluna-completed{
   border-top: 3px solid var(--color-completed);
   color:var(--color-completed);
 }
@@ -152,7 +182,7 @@ button:is(:active, :hover) {
   padding: 0 0.25rem;
 }
 
-.coluna-titulo button {
+.coluna-titulo button{
   margin-left: auto;
   font-size: 2rem;
 
