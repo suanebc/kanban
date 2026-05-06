@@ -8,6 +8,7 @@
   --tarefa-color: #f6f6f6;
   --cancela-color: #e5e7eb;
   --bg-color: #F4E100;
+  --bg-tarefas-color:#F9F9F9;
   --confirma-color: #dc2626;
   --confirma-hover-color: #b91c1c;
   --color-to-do: #D13B42;
@@ -139,6 +140,7 @@ button .completed {
   display: grid;
   grid-template-rows: var(--tarefa-size) 1fr;
   gap: 0.5rem;
+  margin-top: 20px;
 }
 
 .coluna-titulo {
@@ -192,7 +194,7 @@ button .completed {
 }
 
 .tarefas>* {
-  background: var(#FDFBD4);
+  background: var(--bg-tarefas-color);
   border-radius: 0.25rem;
   padding: 0.875rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

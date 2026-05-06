@@ -7,6 +7,8 @@ const modalDeletar = document.querySelector(".confirma-modal");
 
 let tarefaAtual;
 
+
+
 const deletarTarefa = (event) => {
   tarefaAtual = event.target.closest(".tarefa");
   modalDeletar.querySelector(".preview").innerText = tarefaAtual.innerText.substring(0, 100);
@@ -38,6 +40,22 @@ const adicionarTarefa = (event) => {
   elementoTarefa.appendChild(paragrafo);
   paragrafo.focus();
 }
+
+// CONTAR TAREFAS DA COLUNA
+const atualizaContadorTarefas = (coluna) => {
+  const tarefas = coluna.querySelector(".tarefas").children;
+  const contadorTarefas = tarefas.length;
+  //console.log(contadorTarefas)
+  coluna.querySelector(".coluna-titulo h3").dataset.tarefas = contadorTarefas;
+};
+
+const ObservarTarefas = () => {
+  for (const c of colunas) {
+    const observer = new MutationObserver(() => atualizaContadorTarefas(coluna));
+    observer.observe(colunas.querySelector(".tarefas"), { childList: true });
+  }
+};
+
 
 
 // CRIAR TAREFA
@@ -75,6 +93,8 @@ colunas.addEventListener('click', (event) => {
     deletarTarefa(event);
   }
 });
+
+ObservarTarefas();
 
 modalDeletar.addEventListener('submit', () => tarefaAtual && tarefaAtual.remove());
 modalDeletar.querySelector("#inCancela").addEventListener("click", () => modalDeletar.close());
