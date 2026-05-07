@@ -4,6 +4,8 @@ a.innerText = new Date().getFullYear();
 const colunas = document.querySelector(".colunas");
 const coluna = colunas.querySelectorAll(".coluna");
 const modalDeletar = document.querySelector(".confirma-modal");
+const btnAddTarefa = document.getElementById("bntAdd");
+const qtdTarefas = document.getElementById("qtdTarefas");
 
 let tarefaAtual;
 
@@ -42,6 +44,7 @@ const adicionarTarefa = (event) => {
 }
 
 // CONTAR TAREFAS DA COLUNA
+/*
 const atualizaContadorTarefas = (coluna) => {
   const tarefas = coluna.querySelector(".tarefas").children;
   const contadorTarefas = tarefas.length;
@@ -54,8 +57,10 @@ const ObservarTarefas = () => {
     const observer = new MutationObserver(() => atualizaContadorTarefas(coluna));
     observer.observe(colunas.querySelector(".tarefas"), { childList: true });
   }
-};
-
+};*/
+btnAddTarefa.addEventListener('click', () =>{
+  qtdTarefas.innerText = parseInt(qtdTarefas.innerText) + 1;
+})
 
 
 // CRIAR TAREFA
@@ -94,7 +99,7 @@ colunas.addEventListener('click', (event) => {
   }
 });
 
-ObservarTarefas();
+//ObservarTarefas();
 
 modalDeletar.addEventListener('submit', () => tarefaAtual && tarefaAtual.remove());
 modalDeletar.querySelector("#inCancela").addEventListener("click", () => modalDeletar.close());

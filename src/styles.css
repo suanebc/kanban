@@ -8,7 +8,7 @@
   --tarefa-color: #f6f6f6;
   --cancela-color: #e5e7eb;
   --bg-color: #F4E100;
-  --bg-tarefas-color:#F9F9F9;
+  --bg-tarefas-color: #F9F9F9;
   --confirma-color: #dc2626;
   --confirma-hover-color: #b91c1c;
   --color-to-do: #D13B42;
@@ -37,7 +37,7 @@ body {
   background-size: cover;
   background-position: center;
   background-color: var(--bg-color);
-  
+
 
 }
 
@@ -66,16 +66,22 @@ h1 {
   margin-top: 50px;
 }
 
-h3{
+h3 {
   padding: auto;
+  margin:auto;
+}
+
+p {
+  padding: 0;
   margin: auto;
+
 }
 
 .linha-titulo {
   width: 300px;
   border: 3px solid black;
 
-  
+
 }
 
 button {
@@ -95,26 +101,32 @@ button .to-do {
   color: var(--color-to-do);
 
 }
+
 button .in-progress {
   color: var(--color-in-progress);
 
 }
+
 button .completed {
-  color:var(--color-completed);
+  color: var(--color-completed);
 
 }
+
 .to-do h3 {
   color: var(--color-to-do);
 
 }
+
 .in-progress h3 {
   color: var(--color-in-progress);
 
 }
+
 .completed h3 {
-  color:var(--color-completed);
+  color: var(--color-completed);
 
 }
+
 .colunas {
   display: flex;
   flex-direction: column;
@@ -126,7 +138,7 @@ button .completed {
 @media (min-width: 768px) {
   body {
     background-color: var(--bg-color);
-    
+
   }
 
   .colunas {
@@ -145,24 +157,26 @@ button .completed {
 
 .coluna-titulo {
   display: flex;
-  align-items:normal;
-  
+  align-items: normal;
+
   border-radius: 10px;
   background-color: white;
-  
+
 }
 
 .coluna-to-do {
   border-top: 3px solid var(--color-to-do);
   color: var(--color-to-do);
 }
+
 .coluna-in-progress {
   border-top: 3px solid var(--color-in-progress);
   color: var(--color-in-progress);
 }
-.coluna-completed{
+
+.coluna-completed {
   border-top: 3px solid var(--color-completed);
-  color:var(--color-completed);
+  color: var(--color-completed);
 }
 
 /*
@@ -179,7 +193,7 @@ button .completed {
   padding: 0 0.25rem;
 }
 
-.coluna-titulo button{
+.coluna-titulo button {
   margin-left: auto;
   font-size: 2rem;
 
