@@ -5,6 +5,7 @@ const colunas = document.getElementById('inColunas');
 const coluna = colunas.querySelectorAll(".coluna");
 const modalDeletar = document.querySelector(".confirma-modal");
 
+
 let tarefaAtual;
 
 const deletarTarefa = (event) => {
@@ -42,14 +43,14 @@ const adicionarTarefa = (event) => {
 
 // CRIAR TAREFA
 const criarTarefa = (content) => {
-  const tarefa = document.createElement("section");
+  const tarefa = document.createElement("p");
   tarefa.className = "tarefa";
   tarefa.draggable = true;
   tarefa.innerHTML = `
-  <section>${content}</section>
+  <p>${content}</p>
   <menu>
-      <button data-edit><i class="bi bi-pencil-square"></i></button>
-      <button data-delete><i class="bi bi-trash"></i></button>
+      <button data-edit><i class="bi bi-pen"></i></button>
+      <button data-delete><i class="bi bi-x-circle"></i></button>
   </menu>`;
   //tarefa.addEventListener("dragstart", handleDragstart);
   //tarefa.addEventListener("dragend", handleDragend);

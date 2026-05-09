@@ -71,11 +71,7 @@ h3 {
   margin:auto;
 }
 
-p {
-  padding: 0;
-  margin: auto;
 
-}
 
 .linha-titulo {
   width: 300px;
@@ -205,6 +201,8 @@ button .completed {
   display: grid;
   align-content: start;
   gap: 0.5rem;
+  padding: 0;
+  margin: 0;
 }
 
 .tarefas>* {

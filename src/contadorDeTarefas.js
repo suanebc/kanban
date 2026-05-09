@@ -1,5 +1,5 @@
-let c = document.getElementById('inColunas');
-let filhoC = document.querySelectorAll(".coluna");
+const inTarefas = document.querySelectorAll("p").children;
+console.log(inTarefas)
 //console.log(filhoC)
 //const coluna = colunas.querySelectorAll(".coluna");
 /*
@@ -7,7 +7,7 @@ const tituloTarefas = document.querySelectorAll("h3");
 tituloTarefas.forEach(titulo =>{
   console.log(parseInt(titulo.dataset.tarefas))
 })
-*/
+
 const updateTaskCount = () => {
   const tarefas = filhoC.querySelector(".tarefas").children;
   const taskCount = tarefas.length;
@@ -25,3 +25,4 @@ const observeTaskChanges = () => {
 
 
 observeTaskChanges();
+*/
