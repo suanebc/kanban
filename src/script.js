@@ -1,15 +1,11 @@
 
 const a = document.getElementById("year");
 a.innerText = new Date().getFullYear();
-const colunas = document.querySelector(".colunas");
+const colunas = document.getElementById('inColunas');
 const coluna = colunas.querySelectorAll(".coluna");
 const modalDeletar = document.querySelector(".confirma-modal");
-const btnAddTarefa = document.getElementById("bntAdd");
-const qtdTarefas = document.getElementById("qtdTarefas");
 
 let tarefaAtual;
-
-
 
 const deletarTarefa = (event) => {
   tarefaAtual = event.target.closest(".tarefa");
@@ -42,25 +38,6 @@ const adicionarTarefa = (event) => {
   elementoTarefa.appendChild(paragrafo);
   paragrafo.focus();
 }
-
-// CONTAR TAREFAS DA COLUNA
-/*
-const atualizaContadorTarefas = (coluna) => {
-  const tarefas = coluna.querySelector(".tarefas").children;
-  const contadorTarefas = tarefas.length;
-  //console.log(contadorTarefas)
-  coluna.querySelector(".coluna-titulo h3").dataset.tarefas = contadorTarefas;
-};
-
-const ObservarTarefas = () => {
-  for (const c of colunas) {
-    const observer = new MutationObserver(() => atualizaContadorTarefas(coluna));
-    observer.observe(colunas.querySelector(".tarefas"), { childList: true });
-  }
-};*/
-btnAddTarefa.addEventListener('click', () =>{
-  qtdTarefas.innerText = parseInt(qtdTarefas.innerText) + 1;
-})
 
 
 // CRIAR TAREFA
@@ -99,8 +76,40 @@ colunas.addEventListener('click', (event) => {
   }
 });
 
-//ObservarTarefas();
+
 
 modalDeletar.addEventListener('submit', () => tarefaAtual && tarefaAtual.remove());
 modalDeletar.querySelector("#inCancela").addEventListener("click", () => modalDeletar.close());
 modalDeletar.addEventListener("close", () => (tarefaAtual = null))
+
+
+
+let tarefas = [
+  [
+    "Crias layout para site de petshop 🖌️",
+    "gerar paleta de cores 🖍️",
+    "Construir novo desing 🎨",
+  ],
+  [
+    "configurar imagens 🏞️",
+    "testar host 🌐",
+    "Integração de chat 💬",
+  ],
+  [
+    "Configurar domínio personalizado 🌍",
+    "Publicar site 🚀",
+    "Corrigir bugs 🛠️",
+    "Reunião de equipe 📅",
+  ],
+  [
+    "Escrever relatório 📊",
+    "Revisão de código 💻",
+    "Implementar cobrança e assinatura 💰",
+  ],
+];
+
+tarefas.forEach((col, idx) => {
+  for (const item of col) {
+    coluna[idx].querySelector(".tarefas").appendChild(criarTarefa(item));
+  }
+});
